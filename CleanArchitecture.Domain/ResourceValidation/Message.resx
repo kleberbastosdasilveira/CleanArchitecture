@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CategoriaInvalida" xml:space="preserve">
+    <value>A categoria está invalida.</value>
+  </data>
+  <data name="DescricaoInvalida" xml:space="preserve">
+    <value>A descrição está inválida.</value>
+  </data>
   <data name="IdInvalido" xml:space="preserve">
-    <value>O Id não pode ser vazio</value>
+    <value>O Id não pode ser vazio.</value>
+  </data>
+  <data name="ImagemInvalida" xml:space="preserve">
+    <value>A imagem é inválida.</value>
   </data>
   <data name="NomeInvalido" xml:space="preserve">
     <value>O nome é inválido.</value>
   </data>
   <data name="NomePequeno" xml:space="preserve">
     <value>O nome deve ter mais de três caracteres.</value>
+  </data>
+  <data name="PrecoInvalido" xml:space="preserve">
+    <value>O peço está com valor inválido.</value>
+  </data>
+  <data name="QuantidadeInvalida" xml:space="preserve">
+    <value>O quantidade está com valor inválido.</value>
   </data>
 </root>

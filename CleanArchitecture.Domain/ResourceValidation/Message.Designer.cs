@@ -61,11 +61,38 @@ namespace CleanArchitecture.Domain.ResourceValidation {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a O Id não pode ser vazio.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A categoria está invalida..
+        /// </summary>
+        internal static string CategoriaInvalida {
+            get {
+                return ResourceManager.GetString("CategoriaInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A descrição está inválida..
+        /// </summary>
+        internal static string DescricaoInvalida {
+            get {
+                return ResourceManager.GetString("DescricaoInvalida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O Id não pode ser vazio..
         /// </summary>
         internal static string IdInvalido {
             get {
                 return ResourceManager.GetString("IdInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a A imagem é inválida..
+        /// </summary>
+        internal static string ImagemInvalida {
+            get {
+                return ResourceManager.GetString("ImagemInvalida", resourceCulture);
             }
         }
         
@@ -84,6 +111,24 @@ namespace CleanArchitecture.Domain.ResourceValidation {
         internal static string NomePequeno {
             get {
                 return ResourceManager.GetString("NomePequeno", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O peço está com valor inválido..
+        /// </summary>
+        internal static string PrecoInvalido {
+            get {
+                return ResourceManager.GetString("PrecoInvalido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a O quantidade está com valor inválido..
+        /// </summary>
+        internal static string QuantidadeInvalida {
+            get {
+                return ResourceManager.GetString("QuantidadeInvalida", resourceCulture);
             }
         }
     }

@@ -23,14 +23,17 @@ namespace CleanArchitecture.Domain.Entities
             ValidateDomain();
         }
 
+        public void Update(string name) => Name = name;
+
         public void ValidateDomain()
         {
             AddNotifications(new Contract<Notification>()
                 .Requires()
                 .IsNotNullOrEmpty(Name, nameof(Name), Message.NomeInvalido)
-                .IsNotMaxValue(Name.Length,nameof(Name),Message.NomePequeno)
-                .IsNotEmpty(Id,nameof(Id),Message.IdInvalido));
-            
+                .IsGreaterThan(Name.Length, 3, nameof(Name), Message.NomePequeno)
+                .AreNotEquals(Name.Length, 3, nameof(Name), Message.NomePequeno)
+                .IsNotEmpty(Id, nameof(Id), Message.IdInvalido));
+
         }
     }
 }
