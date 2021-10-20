@@ -10,7 +10,6 @@ namespace CleanArchitecture.Domain.Entities
     public sealed class Category : Entity
     {
         public string Name { get; private set; }
-        public ICollection<Product> Products { get; set; }
         public Category(string name)
         {
             Name = name;
@@ -33,7 +32,6 @@ namespace CleanArchitecture.Domain.Entities
                 .IsGreaterThan(Name.Length, 3, nameof(Name), Message.NomePequeno)
                 .AreNotEquals(Name.Length, 3, nameof(Name), Message.NomePequeno)
                 .IsNotEmpty(Id, nameof(Id), Message.IdInvalido));
-
         }
     }
 }
