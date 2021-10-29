@@ -6,10 +6,12 @@ namespace CleanArchitecture.Domain.Entities
     public abstract class Entity : Notifiable<Notification>
     {
         public Guid Id { get; protected set; }
+        public DateTime DataCadastro { get; private set; }
 
         public Entity()
         {
             Id = Guid.NewGuid();
+            DataCadastro = DateTime.Now;
         }
         public override bool Equals(object obj)
         {

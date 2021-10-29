@@ -9,39 +9,37 @@ using Xunit;
 
 namespace TesteCleanArchitecture.Entidades
 {
-    public class CategoriaTeste
+    public class ProdutoTeste
     {
-        private readonly Fixture _fixture;
-        private readonly CategoriaFake _categoriaFake;
-        public CategoriaTeste()
+        protected readonly Fixture _fixture;
+        protected readonly ProdutoFake _produtoFake;
+        public ProdutoTeste()
         {
             _fixture = new Fixture();
-            _categoriaFake = new CategoriaFake(_fixture);
+            _produtoFake = new ProdutoFake(_fixture);
         }
 
 
         [Fact]
-        [Trait("Entidade Categoria", "Validar Entidade Invalida")]
-        public void DeveretornarNotificacaoQuandoCategoriaForInvalida()
+        [Trait("Entidade Produto", "Validar Entidade Invalida")]
+        public void DeveretornarNotificacaoQuandoProdutoForInvalida()
         {
-            var categoria = _categoriaFake.CriarEntidadeInvalida();
+            var categoria = _produtoFake.CriarEntidadeInvalida();
             categoria.ValidateDomain();
 
             Assert.False(categoria.IsValid);
             Assert.True(categoria.Notifications.Count > 0);
-
         }
 
         [Fact]
-        [Trait("Entidade Categoria", "Validar Entidade Valida")]
-        public void NãoDeveretornarNotificacaoQuandoCategoriaForValida()
+        [Trait("Entidade Produto", "Validar Entidade Valida")]
+        public void NãoDeveretornarNotificacaoQuandoProdutoForValida()
         {
-            var categoria = _categoriaFake.CriarEntidadeValida();
+            var categoria = _produtoFake.CriarEntidadeValida();
             categoria.ValidateDomain();
 
             Assert.True(categoria.IsValid);
             Assert.False(categoria.Notifications.Count > 0);
-
         }
     }
 }

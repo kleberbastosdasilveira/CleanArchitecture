@@ -15,16 +15,16 @@ namespace TesteCleanArchitecture.Fakes.Endidades
 
         public Category CriarEntidadeInvalida()
         {
-            var entridade = _fixture.Build<Category>().Create();
-            entridade.Update(string.Empty);
-            return entridade;
+            var entidade = _fixture.Build<Category>().Create();
+            entidade.Update(string.Empty);
+            return entidade;
 
         }
 
         public Category CriarEntidadeValida()
         {
-            var entridade = _fixture.Build<Category>().Create();
-            return entridade;
+            var entidade = _fixture.Build<Category>().Create();
+            return entidade;
         }
     }
 }
