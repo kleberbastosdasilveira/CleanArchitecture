@@ -1,4 +1,7 @@
-﻿using CleanArchitecture.Domain.Interfaces;
+﻿using CleanArchitecture.Application.Interfaces;
+using CleanArchitecture.Application.Mappings;
+using CleanArchitecture.Application.Services;
+using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
 using CleanArchitecture.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,8 +18,14 @@ namespace CleanArchitecture.Infra.CrossCutting.Configuration
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
             b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
+            // Registro das Dependências das InterfaceRepositório  
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+
+            // Registro das Dependências dos Serviços 
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
 
             return services;
         }

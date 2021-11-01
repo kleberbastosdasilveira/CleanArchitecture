@@ -8,10 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CleanArchitecture.Domain.ResourceValidation {
+namespace CleanArchitecture.Domain.ResourceValidation
+{
     using System;
-    
-    
+
+
     /// <summary>
     ///   Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
     /// </summary>
@@ -22,112 +23,136 @@ namespace CleanArchitecture.Domain.ResourceValidation {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Message {
-        
+    public class Message
+    {
+
         private static global::System.Resources.ResourceManager resourceMan;
-        
+
         private static global::System.Globalization.CultureInfo resourceCulture;
-        
+
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Message() {
+        public Message()
+        {
         }
-        
+
         /// <summary>
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
-            get {
-                if (object.ReferenceEquals(resourceMan, null)) {
+        public static global::System.Resources.ResourceManager ResourceManager
+        {
+            get
+            {
+                if (object.ReferenceEquals(resourceMan, null))
+                {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CleanArchitecture.Domain.ResourceValidation.Message", typeof(Message).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-        
+
         /// <summary>
         ///   Substitui a propriedade CurrentUICulture do thread atual para todas as
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
-            get {
+        public static global::System.Globalization.CultureInfo Culture
+        {
+            get
+            {
                 return resourceCulture;
             }
-            set {
+            set
+            {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A categoria está invalida..
         /// </summary>
-        internal static string CategoriaInvalida {
-            get {
+        public static string CategoriaInvalida
+        {
+            get
+            {
                 return ResourceManager.GetString("CategoriaInvalida", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A descrição está inválida..
         /// </summary>
-        internal static string DescricaoInvalida {
-            get {
+        public static string DescricaoInvalida
+        {
+            get
+            {
                 return ResourceManager.GetString("DescricaoInvalida", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O Id não pode ser vazio..
         /// </summary>
-        internal static string IdInvalido {
-            get {
+        public static string IdInvalido
+        {
+            get
+            {
                 return ResourceManager.GetString("IdInvalido", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a A imagem é inválida..
         /// </summary>
-        internal static string ImagemInvalida {
-            get {
+        public static string ImagemInvalida
+        {
+            get
+            {
                 return ResourceManager.GetString("ImagemInvalida", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O nome é inválido..
         /// </summary>
-        internal static string NomeInvalido {
-            get {
+        public static string NomeInvalido
+        {
+            get
+            {
                 return ResourceManager.GetString("NomeInvalido", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O nome deve ter mais de três caracteres..
         /// </summary>
-        internal static string NomePequeno {
-            get {
+        public static string NomePequeno
+        {
+            get
+            {
                 return ResourceManager.GetString("NomePequeno", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O peço está com valor inválido..
         /// </summary>
-        internal static string PrecoInvalido {
-            get {
+        public static string PrecoInvalido
+        {
+            get
+            {
                 return ResourceManager.GetString("PrecoInvalido", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a O quantidade está com valor inválido..
         /// </summary>
-        internal static string QuantidadeInvalida {
-            get {
+        public static string QuantidadeInvalida
+        {
+            get
+            {
                 return ResourceManager.GetString("QuantidadeInvalida", resourceCulture);
             }
         }

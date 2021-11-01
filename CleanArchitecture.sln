@@ -9,22 +9,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebUI", "WebUI", "{F61E846C-819E-4D2E-B4D2-1EF941E44E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Domain", "CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{6D2DA2D8-D0EE-4BBD-9A82-F879F12891B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Domain", "CleanArchitecture.Domain\CleanArchitecture.Domain.csproj", "{6D2DA2D8-D0EE-4BBD-9A82-F879F12891B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{6EBD370E-A130-4AB3-8CA8-492564883E6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Application", "CleanArchitecture.Application\CleanArchitecture.Application.csproj", "{6EBD370E-A130-4AB3-8CA8-492564883E6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infra.Data", "CleanArchitecture.Infra.Data\CleanArchitecture.Infra.Data.csproj", "{64946A6E-3AD6-445B-B6DE-D4B8A7E10E9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infra.Data", "CleanArchitecture.Infra.Data\CleanArchitecture.Infra.Data.csproj", "{64946A6E-3AD6-445B-B6DE-D4B8A7E10E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Infra.CrossCutting", "CleanArchitecture.Infra.CrossCutting\CleanArchitecture.Infra.CrossCutting.csproj", "{34A1BE3C-9BC2-4454-99AF-CC198AF3EE2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infra.CrossCutting", "CleanArchitecture.Infra.CrossCutting\CleanArchitecture.Infra.CrossCutting.csproj", "{34A1BE3C-9BC2-4454-99AF-CC198AF3EE2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchitecture.Mvc.WebUI", "CleanArchitecture.Mvc.WebUI\CleanArchitecture.Mvc.WebUI.csproj", "{78F66375-87E5-496E-84E5-6C471B627DF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Mvc.WebUI", "CleanArchitecture.Mvc.WebUI\CleanArchitecture.Mvc.WebUI.csproj", "{78F66375-87E5-496E-84E5-6C471B627DF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F850EFF-5386-4CEC-824D-780905014EC3}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteCleanArchitecture", "TesteCleanArchitecture\TesteCleanArchitecture.csproj", "{60014120-9DE7-41F0-B84D-AB506B11C12D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteCleanArchitecture", "TesteCleanArchitecture\TesteCleanArchitecture.csproj", "{60014120-9DE7-41F0-B84D-AB506B11C12D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

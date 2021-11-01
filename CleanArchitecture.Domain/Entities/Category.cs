@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using CleanArchitecture.Domain.ResourceValidation;
+﻿using CleanArchitecture.Domain.ResourceValidation;
 using Flunt.Notifications;
 using Flunt.Validations;
+using System;
 
 
 namespace CleanArchitecture.Domain.Entities
