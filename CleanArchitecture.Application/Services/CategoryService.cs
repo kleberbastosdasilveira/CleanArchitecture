@@ -19,27 +19,11 @@ namespace CleanArchitecture.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<CategoryDTO> GetById(Guid? id)
-        {
-            return _mapper.Map<CategoryDTO>(await _categoryRepository.GetByIdAsync(id));
-        }
+        public async Task<CategoryDTO> GetById(Guid? id) => _mapper.Map<CategoryDTO>(await _categoryRepository.GetByIdAsync(id));
+        public async Task<IEnumerable<CategoryDTO>> GetCategories() => _mapper.Map<IEnumerable<CategoryDTO>>(await _categoryRepository.GetCategoriesAsync());
+        public async Task Add(CategoryDTO categoryDTO) => await _categoryRepository.CreateAsync(_mapper.Map<Category>(categoryDTO));
+        public async Task Update(CategoryDTO categoryDTO) => await _categoryRepository.UpdateAsync(_mapper.Map<Category>(categoryDTO));
+        public async Task Remove(Guid id) => await _categoryRepository.RemoveAsync(_categoryRepository.GetByIdAsync(id).Result);
 
-        public async Task<IEnumerable<CategoryDTO>> GetCategories()
-        {
-            return _mapper.Map<IEnumerable<CategoryDTO>>(await _categoryRepository.GetCategoriesAsync());
-        }
-        public async Task Add(CategoryDTO categoryDTO)
-        {
-            await _categoryRepository.CreateAsync(_mapper.Map<Category>(categoryDTO));
-        }
-
-        public async Task Update(CategoryDTO categoryDTO)
-        {
-            await _categoryRepository.UpdateAsync(_mapper.Map<Category>(categoryDTO));
-        }
-        public async Task Remove(Guid id)
-        {
-            await _categoryRepository.RemoveAsync(_categoryRepository.GetByIdAsync(id).Result);
-        }
     }
 }

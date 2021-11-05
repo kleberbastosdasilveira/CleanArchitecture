@@ -19,11 +19,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Infra.Cro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitecture.Mvc.WebUI", "CleanArchitecture.Mvc.WebUI\CleanArchitecture.Mvc.WebUI.csproj", "{78F66375-87E5-496E-84E5-6C471B627DF0}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3F850EFF-5386-4CEC-824D-780905014EC3}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteCleanArchitecture", "TesteCleanArchitecture\TesteCleanArchitecture.csproj", "{60014120-9DE7-41F0-B84D-AB506B11C12D}"
 EndProject
 Global

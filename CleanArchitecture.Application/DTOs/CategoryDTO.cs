@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Domain.ResourceValidation;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace CleanArchitecture.Application.DTOs
@@ -14,6 +15,7 @@ namespace CleanArchitecture.Application.DTOs
         [Required(ErrorMessageResourceType = typeof(Message), ErrorMessageResourceName = "NomeInvalido")]
         [MinLength(3)]
         [MaxLength(100)]
+        [DisplayName("Nome")]
         public string Name { get; set; }
     }
 }

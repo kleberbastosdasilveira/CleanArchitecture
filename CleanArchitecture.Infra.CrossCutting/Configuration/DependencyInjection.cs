@@ -1,9 +1,11 @@
-﻿using CleanArchitecture.Application.Interfaces;
+﻿using CleanArchitecture.Application.CQRS.Products.Handlers;
+using CleanArchitecture.Application.Interfaces;
 using CleanArchitecture.Application.Mappings;
 using CleanArchitecture.Application.Services;
 using CleanArchitecture.Domain.Interfaces;
 using CleanArchitecture.Infra.Data.Context;
 using CleanArchitecture.Infra.Data.Repositories;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +28,11 @@ namespace CleanArchitecture.Infra.CrossCutting.Configuration
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
+
+            //Registro das Dependências do Command do CQRS
+            services.AddMediatR(typeof(ProductRemoveCommandHandler).Assembly);
+            services.AddMediatR(typeof(ProductCreateCommandHandler).Assembly);
+            services.AddMediatR(typeof(ProductUpdateCommandHandler).Assembly);
 
             return services;
         }

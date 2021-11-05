@@ -27,6 +27,18 @@ namespace CleanArchitecture.Infra.Data.Repositories
             return await _productDbContext.Products.FindAsync(Id);
         }
 
+        public async Task<bool> GetByIdExistAsync(Guid Id)
+        {
+            var produtoEncontrado = await _productDbContext.Products.FirstOrDefaultAsync(p=>p.Id.Equals(Id));
+            return produtoEncontrado is null;
+        }
+
+        public async Task<bool> GetByNameExistAsync(string name)
+        {
+            var produtoEncontrado = _productDbContext.Products.FirstOrDefaultAsync(p => p.Name.ToLower().Equals(name.ToLower()));
+            return produtoEncontrado is null;
+        }
+
         public async Task<Product> GetProductCategoryAsync(Guid? Id)
         {
             return await _productDbContext.Products.Include(c => c.Category)

@@ -1,7 +1,7 @@
-﻿@model IEnumerable<CategoryDTO>
+﻿@model IEnumerable<ProductDTO>
 
 @{
-    ViewData["Titulo"] = "Gerenciamento de Categorias";
+    ViewData["Titulo"] = "Gerenciamento de Produtos";
 }
 <style>
     .modal-lg {
@@ -29,6 +29,15 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -38,6 +47,15 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Stock)
                     </td>
                     <td>
                         <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger float-right m-1 "><span class="fas fa-trash-alt">Delete</span></a>
