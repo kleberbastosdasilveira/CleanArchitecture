@@ -5,7 +5,7 @@ namespace CleanArchitecture.Domain.Entities
 {
     public abstract class Entity : Notifiable<Notification>
     {
-        public Guid Id { get; protected set; }
+        public Guid Id { get; private set; }
         public DateTime DataCadastro { get; private set; }
 
         public Entity()

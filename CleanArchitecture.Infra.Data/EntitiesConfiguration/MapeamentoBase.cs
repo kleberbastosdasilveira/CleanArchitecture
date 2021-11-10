@@ -16,8 +16,10 @@ namespace CleanArchitecture.Infra.Data.EntitiesConfiguration
                 .IsRequired();
 
             builder.Property(c => c.DataCadastro)
-                .HasColumnName("DATA_CADASTRO")
-                .IsRequired();
+                .HasColumnName("Data_Cadastro")
+                .IsRequired()
+                .HasColumnType("datetime2")
+                .HasPrecision(0); 
         }
     }
 }

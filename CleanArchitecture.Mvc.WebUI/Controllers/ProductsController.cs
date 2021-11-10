@@ -17,5 +17,11 @@ namespace CleanArchitecture.Mvc.WebUI.Controllers
         {
             return View(await _producsService.GetProducts());
         }
+
+        [HttpGet()]
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }

@@ -33,19 +33,27 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @if (Model.Count() > 0)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger float-right m-1 "><span class="fas fa-trash-alt">Delete</span></a>
-                        <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning float-right m-1 "><span class="fas fa-edit">Editar</span></a>
-                        <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary float-right m-1 "><span class="fas fa-search">Detalhes</span></a>
-                    </td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.Id" title="Delete" class="btn btn-danger float-right m-1 "><span class="fas fa-trash-alt">Delete</span></a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning float-right m-1 "><span class="fas fa-edit">Editar</span></a>
+                            <a asp-action="Details" asp-route-id="@item.Id" title="Details" class="btn btn-primary float-right m-1 "><span class="fas fa-search">Detalhes</span></a>
+                        </td>
+                    </tr>
+                }
             }
+            else
+            {
+                <span title="Não foi encontrado Registro" class="fas fa-plus">Não foi encontrado Registro</span>
+            }
+
         </tbody>
     </table>
 

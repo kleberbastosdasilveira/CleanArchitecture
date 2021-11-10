@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CleanArchitecture.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211029020713_UpdateCategory")]
-    partial class UpdateCategory
+    [Migration("20211110024541_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,8 +29,9 @@ namespace CleanArchitecture.Infra.Data.Migrations
                         .HasColumnName("ID");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DATA_CADASTRO");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime2(0)")
+                        .HasColumnName("Data_Cadastro");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -53,8 +54,9 @@ namespace CleanArchitecture.Infra.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DATA_CADASTRO");
+                        .HasPrecision(0)
+                        .HasColumnType("datetime2(0)")
+                        .HasColumnName("Data_Cadastro");
 
                     b.Property<string>("Description")
                         .IsRequired()

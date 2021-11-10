@@ -9,9 +9,6 @@ namespace CleanArchitecture.Application.DTOs
     {
         public Guid Id { get; set; }
 
-        [DisplayFormat(DataFormatString = "mm/dd/yyyy")]
-        public DateTime DataCadastro { get; set; }
-
         [Required(ErrorMessageResourceType = typeof(Message), ErrorMessageResourceName = "NomeInvalido")]
         [MinLength(3)]
         [MaxLength(100)]

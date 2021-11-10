@@ -15,13 +15,6 @@ namespace CleanArchitecture.Domain.Entities
             Name = name;
             ValidateDomain();
         }
-        public Category(Guid id, string name)
-        {
-            Id = id;
-            Name = name;
-            ValidateDomain();
-        }
-
         public void Update(string name) => Name = name;
 
         public void ValidateDomain()

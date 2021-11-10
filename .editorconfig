@@ -5,3 +5,6 @@ dotnet_diagnostic.CS0659.severity = none
 
 # CS0628: Novo membro protegido declarado no tipo selado
 dotnet_diagnostic.CS0628.severity = none
+
+# CA1305: Especificar IFormatProvider
+dotnet_diagnostic.CA1305.severity = none

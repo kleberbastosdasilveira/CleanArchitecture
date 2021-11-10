@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CleanArchitecture.Infra.Data.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace CleanArchitecture.Infra.Data.Migrations
                 {
                     ID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    DATA_CADASTRO = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Data_Cadastro = table.Column<DateTime>(type: "datetime2(0)", precision: 0, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,13 +31,13 @@ namespace CleanArchitecture.Infra.Data.Migrations
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    DATA_CADASTRO = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Data_Cadastro = table.Column<DateTime>(type: "datetime2(0)", precision: 0, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_CategoryId",
+                        name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "ID",
