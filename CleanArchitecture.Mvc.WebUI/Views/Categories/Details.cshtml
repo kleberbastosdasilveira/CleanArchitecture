@@ -1,0 +1,34 @@
+﻿@model CategoryDeteilDTO
+
+@{
+    ViewData["Title"] = "Detalhes Categoria";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<vc:Summary></vc:Summary>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+        <dl class="row">
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+            <div class="mt-5 col-md-10 mr-5">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+                <a asp-action="Index" class="btn btn-info">Voltar a Listas de Categoria</a>
+            </div>
+        </dl>
+
+    </div>
+</div>

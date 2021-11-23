@@ -1,6 +1,4 @@
-using System;
-
-namespace CleanArchitecture.Mvc.WebUI.Models
+﻿namespace CleanArchitecture.Mvc.WebUI.Models
 {
     public class ErrorViewModel
     {

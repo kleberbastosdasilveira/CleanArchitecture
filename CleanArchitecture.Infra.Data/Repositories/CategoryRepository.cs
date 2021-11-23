@@ -8,37 +8,24 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infra.Data.Repositories
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        ApplicationDbContext _categoryDbContext;
-        public CategoryRepository(ApplicationDbContext context)
+        public CategoryRepository(ApplicationDbContext context) : base(context) { }
+
+        public async Task<Category> GetByIdAsync(Guid? Id) => await _categoryDbContext.Categories.AsNoTracking().FirstOrDefaultAsync(c => c.Id == Id);
+
+        public async Task<IEnumerable<Category>> GetCategoriesAsync() => await _categoryDbContext.Categories.AsNoTracking().ToListAsync();
+
+        public async Task<bool> GetByIdExistAsync(Guid Id)
         {
-            _categoryDbContext = context;
+            var categoriaEncontrado = await _categoryDbContext.Categories.FirstOrDefaultAsync(p => p.Id.Equals(Id));
+            return categoriaEncontrado is null;
         }
 
-        public async Task<Category> GetByIdAsync(Guid? Id) => await _categoryDbContext.Categories.FindAsync(Id);
-
-        public async Task<IEnumerable<Category>> GetCategoriesAsync() => await _categoryDbContext.Categories.ToListAsync();
-
-        public async Task<Category> CreateAsync(Category category)
+        public async Task<bool> GetByNameExistAsync(string name)
         {
-            _categoryDbContext.Add(category);
-            await _categoryDbContext.SaveChangesAsync();
-            return category;
-        }
-  
-        public async Task<Category> RemoveAsync(Category category)
-        {
-            _categoryDbContext.Remove(category);
-            await _categoryDbContext.SaveChangesAsync();
-            return category;
-        }
-
-        public async Task<Category> UpdateAsync(Category category)
-        {
-            _categoryDbContext.Update(category);
-            await _categoryDbContext.SaveChangesAsync();
-            return category;
+            var categoriaEncontrado = await _categoryDbContext.Categories.FirstOrDefaultAsync(p => p.Name.ToLower().Equals(name.ToLower()));
+            return categoriaEncontrado is null;
         }
     }
 }

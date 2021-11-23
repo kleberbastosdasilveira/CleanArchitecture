@@ -15,8 +15,7 @@ namespace CleanArchitecture.Domain.Entities
 
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
-
-        protected Product() { }
+        public Product() { }
         public Product(Guid categoriaId, string name, string description, decimal price, int stock, string image)
         {
             CategoryId = categoriaId;

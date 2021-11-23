@@ -1,14 +1,9 @@
 using CleanArchitecture.Infra.CrossCutting.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CleanArchitecture.Mvc.WebUI
 {
@@ -26,6 +21,8 @@ namespace CleanArchitecture.Mvc.WebUI
         {
             services.AddInfrastructure(Configuration);
             services.AddControllersWithViews();
+            services.AddMvc();
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +44,8 @@ namespace CleanArchitecture.Mvc.WebUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseGlobalizationConfig();
 
             app.UseEndpoints(endpoints =>
             {

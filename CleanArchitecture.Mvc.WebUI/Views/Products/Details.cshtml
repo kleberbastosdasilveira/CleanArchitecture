@@ -1,0 +1,61 @@
+﻿@model ProductDetailDTO
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<vc:Summary></vc:Summary>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/imagens/@Model.Image" alt="@Model.Image" style="width: 300px; height: 428px" />
+    </div>
+    <div class="col-md-6">
+        <hr />
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+            <dt>
+                @Html.DisplayName("Categoria")
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Stock)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+            <div class="mt-5 col-md-10 mr-5">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Editar</a>
+                <a asp-action="Index" class="btn btn-info">Voltar a Listas de Produtos</a>
+            </div>
+        </dl>
+
+    </div>
+</div>

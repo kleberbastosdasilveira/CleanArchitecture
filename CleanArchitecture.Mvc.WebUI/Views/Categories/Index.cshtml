@@ -12,6 +12,9 @@
     <h2>@ViewData["Titulo"]</h2>
 </div>
 <hr />
+
+<vc:Summary></vc:Summary>
+
 <div class="row">
     <div class="col-md-12">
         <div>
@@ -51,7 +54,8 @@
             }
             else
             {
-                <span title="Não foi encontrado Registro" class="fas fa-plus">Não foi encontrado Registro</span>
+                <tr> <td><span title="Não foi encontrado Registro" class="fas fa-plus">Não foi encontrado nenhum registro de Categoria.</span></td></tr>
+
             }
 
         </tbody>

@@ -10,8 +10,7 @@ namespace CleanArchitecture.Application.DTOs
         public Guid Id { get; set; }
 
         [Required(ErrorMessageResourceType = typeof(Message), ErrorMessageResourceName = "NomeInvalido")]
-        [MinLength(3)]
-        [MaxLength(100)]
+        [StringLength(100, ErrorMessage = "O campo {0} precisa ser maior que {2} e no máximo {1} caracteres", MinimumLength =3)]
         [DisplayName("Nome")]
         public string Name { get; set; }
     }

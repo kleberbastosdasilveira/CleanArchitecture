@@ -13,4 +13,8 @@
     <ProjectReference Include="..\CleanArchitecture.Infra.CrossCutting\CleanArchitecture.Infra.CrossCutting.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\imagens\" />
+  </ItemGroup>
+
 </Project>

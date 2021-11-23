@@ -5,15 +5,12 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Domain.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
-        Task<IEnumerable<Product>> GetProductsAsync();
-        Task<Product> GetByIdAsync(Guid? Id);
         Task<bool> GetByIdExistAsync(Guid Id);
         Task<bool> GetByNameExistAsync(string name);
-        Task<Product> GetProductCategoryAsync(Guid? Id);
-        Task<Product> CreateAsync(Product product);
-        Task<Product> UpdateAsync(Product product);
-        Task<Product> RemoveAsync(Product product);
+        Task<Product> GetProductAndCategoryAsync(Guid? Id); 
+        Task<bool> GetProductExistCategoryAsync(Guid Id);  
+        Task<IEnumerable<Product>> GetProductAndCategoryAsync();
     }
 }

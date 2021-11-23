@@ -1,0 +1,31 @@
+﻿@model CategoryDTO
+<h3>Edição de Categoria</h3>
+<div class="row">
+    <div class=" form-horizontal col-md-12">
+        <form asp-action="Edit">
+            <div class="form-horizontal">
+                <hr />
+                <vc:Summary></vc:Summary>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Salvar" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-info">Voltar a Listas de Categoria</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+  
+</div>
+
+
