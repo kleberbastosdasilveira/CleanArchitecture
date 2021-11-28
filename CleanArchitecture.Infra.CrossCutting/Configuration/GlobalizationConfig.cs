@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CleanArchitecture.Infra.CrossCutting.Configuration
 {
-   public static class GlobalizationConfig
+    public static class GlobalizationConfig
     {
         public static IApplicationBuilder UseGlobalizationConfig(this IApplicationBuilder app)
         {

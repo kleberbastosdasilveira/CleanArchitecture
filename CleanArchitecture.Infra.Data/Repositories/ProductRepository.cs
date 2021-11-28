@@ -25,6 +25,11 @@ namespace CleanArchitecture.Infra.Data.Repositories
             var produtoEncontrado = await _categoryDbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Name.ToLower().Equals(name.ToLower()));
             return produtoEncontrado is null;
         }
+        public async Task<bool> GetByNameExistImageAsync(string name)
+        {
+            var produtoEncontrado = await _categoryDbContext.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Image.ToLower().Contains(name.ToLower()));
+            return produtoEncontrado is null;
+        }
 
         public async Task<Product> GetProductAndCategoryAsync(Guid? Id)
         {

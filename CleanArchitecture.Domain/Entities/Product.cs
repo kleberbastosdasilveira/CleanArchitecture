@@ -12,7 +12,6 @@ namespace CleanArchitecture.Domain.Entities
         public decimal Price { get; private set; }
         public int Stock { get; private set; }
         public string Image { get; private set; }
-
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
         public Product() { }
@@ -39,7 +38,6 @@ namespace CleanArchitecture.Domain.Entities
 
         }
 
-     
         public Product AlterarNome(string nome)
         {
             Name = nome;

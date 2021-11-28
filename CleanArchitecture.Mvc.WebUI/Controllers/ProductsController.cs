@@ -1,4 +1,5 @@
 ﻿using CleanArchitecture.Application.DTOs;
+using CleanArchitecture.Application.DTOs.Product.DTO;
 using CleanArchitecture.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -35,19 +36,19 @@ namespace CleanArchitecture.Mvc.WebUI.Controllers
                 productDTO = await _producsService.GetProductsCategory(new ProductDTO());
                 return View(productDTO);
             }
-
-            var imgPrefixo = Guid.NewGuid() + "_";
-            if (!await _producsService.UploadArquivo(productDTO.ImagemUpload, imgPrefixo))
+            if(productDTO.ImagemUpload != null)
             {
-                productDTO = await _producsService.GetProductsCategory(new ProductDTO());
-                return View(productDTO);
+                if (!await _producsService.UploadArquivo(productDTO.ImagemUpload))
+                {
+                    productDTO = await _producsService.GetProductsCategory(new ProductDTO());
+                    return View(productDTO);
+                }
+
+                productDTO.Image = productDTO.ImagemUpload.FileName;
+
             }
-
-            productDTO.Image = imgPrefixo + productDTO.ImagemUpload.FileName;
             await _producsService.Add(productDTO);
-
             if (!OPeracaoValida()) return View(productDTO);
-
             TempData["Sucesso"] = "Produto cadastrado com sucesso!";
 
             return RedirectToAction(nameof(Index));
@@ -58,6 +59,57 @@ namespace CleanArchitecture.Mvc.WebUI.Controllers
             var productDTO = await _producsService.GetProductCategory(id);
             if (productDTO == null) return View(id);
             return View(productDTO);
+        }
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var productDTO = await _producsService.GetProductCategoryForEdit(id);
+            if (!OPeracaoValida()) return RedirectToAction(nameof(Index));
+            return View(productDTO);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Guid id, ProductEditDTO productEditDTO)
+        {
+            if (id != productEditDTO.Id)
+            {
+                productEditDTO = await _producsService.GetProductCategoryForEdit(id);
+                return View(productEditDTO);
+            }
+            if (productEditDTO.ImagemUpload != null) 
+            {
+                if (!await _producsService.UploadArquivo(productEditDTO.ImagemUpload))
+                {
+                    productEditDTO = await _producsService.GetProductCategoryForEdit(id);
+                    if (!OPeracaoValida()) return View(productEditDTO);
+                    return View(productEditDTO);
+                }
+                productEditDTO.Image = productEditDTO.ImagemUpload.FileName;
+            }
+
+
+            await _producsService.Update(productEditDTO);
+            if (!OPeracaoValida()) return View(productEditDTO);
+            TempData["Sucesso"] = "Produto editado com sucesso!";
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        [HttpGet()]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var productDTO = await _producsService.GetProductCategory(id);
+            if (productDTO == null) return View(id);
+            return View(productDTO);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmacao(Guid id)
+        {
+            var productDTO = await _producsService.GetById(id);
+            await _producsService.Remove(id);
+            if (!OPeracaoValida()) return View(productDTO);
+            TempData["Sucesso"] = "Produto excluido com sucesso!";
+            return RedirectToAction(nameof(Index));
         }
     }
 }

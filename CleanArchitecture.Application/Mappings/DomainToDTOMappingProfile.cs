@@ -14,6 +14,7 @@ namespace CleanArchitecture.Application.Mappings
             CreateMap<Category, CategoryDeteilDTO>().ReverseMap();
             CreateMap<Product, ProductDTO>().ReverseMap();
             CreateMap<Product, ProductDetailDTO>().ReverseMap();
+            CreateMap<Product, ProductEditDTO>().ReverseMap();
         }
     }
 }

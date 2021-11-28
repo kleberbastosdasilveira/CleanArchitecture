@@ -35,6 +35,16 @@ namespace CleanArchitecture.Application.Services
             }
             return productDetail;
         }
+        public async Task<ProductEditDTO> GetProductCategoryForEdit(Guid id)
+        {
+            var productDetail = _mapper.Map<ProductEditDTO>(await _productRepository.GetProductAndCategoryAsync(id));
+            productDetail.Categorys = _mapper.Map<IEnumerable<CategoryDTO>>(await _categoryRepository.GetAsync());
+            if (String.IsNullOrEmpty(productDetail.Image))
+            {
+                productDetail.Image = "produto-nao-encontrado.png";
+            }
+            return productDetail;
+        }
         public async Task<IEnumerable<ProductDTO>> GetProducts() => _mapper.Map<IEnumerable<ProductDTO>>(await _productRepository.GetProductAndCategoryAsync());
         public async Task<ProductDTO> GetProductsCategory(ProductDTO productDTO)
         {
@@ -47,11 +57,20 @@ namespace CleanArchitecture.Application.Services
             await _productRepository.CreateAsync(_mapper.Map<Product>(productDTO));
 
         }
-        public async Task<bool> UploadArquivo(IFormFile arquivo, string imgPrefixo)
+        public async Task<bool> UploadArquivo(IFormFile arquivo)
         {
-            if (arquivo.Length <= 0) return false;
+            if (arquivo == null || arquivo.Length <= 0)
+            {
+                Notificar("imagem não encontrada !");
+                return false;
+            }
+            if (!await _productRepository.GetByNameExistImageAsync(arquivo.FileName))
+            {
+                Notificar("Já existe um arquivo com este nome!");
+                return false;
+            }
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgPrefixo + arquivo.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens",arquivo.FileName);
 
             if (File.Exists(path))
             {
@@ -66,14 +85,24 @@ namespace CleanArchitecture.Application.Services
 
             return true;
         }
-        public async Task Update(ProductDTO productDTO)
+
+        public async Task Update(ProductEditDTO productDTO)
         {
-
-
+            var productEditDTO = _mapper.Map<Product>(productDTO);
+            productEditDTO.AlterarCategoria(productEditDTO.CategoryId);
+            productEditDTO.AlterarPreco(productDTO.Price);
+            productEditDTO.AlterarNome(productDTO.Name);
+            await _productRepository.UpdateAsync(_mapper.Map<Product>(productEditDTO));
         }
         public async Task Remove(Guid id)
         {
+            if (await _productRepository.GetByIdExistAsync(id))
+            {
+                Notificar("A produto não foi encontrada");
+                return;
+            }
 
+            await _productRepository.RemoveAsync(id);
         }
 
 
