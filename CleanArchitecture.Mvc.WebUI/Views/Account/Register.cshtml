@@ -1,0 +1,49 @@
+﻿@model UserDTO
+
+<h3>Registrar Usuário</h3>
+<vc:Summary></vc:Summary>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Account" asp-action="Register" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col-8 form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Documento" class="control-label"></label>
+                    <input asp-for="Documento" class="form-control" />
+                    <span asp-validation-for="Documento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-4 form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Password"></label>
+                    <input type="password" id="senha" asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <img id="olho" src="~/imagens/olho.png"/>
+                </div>
+                <div class="col-4 form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input type="password" id="senha2" asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <img id="olho2" src="~/imagens/olho.png" />
+                </div>
+            </div>
+            <h4>Endereço</h4>
+            <hr />
+
+            <partial name="_Endereco" />
+
+            <button type="submit" class="btn btn-success">Registrar</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-info">Voltar</a>
+        </form>
+    </div>
+</div>

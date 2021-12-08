@@ -13,3 +13,34 @@ $("#ImagemUpload").change(function () {
 
 $("#ImagemUpload").attr("data-val", "true");
 $("#ImagemUpload").attr("data-val-required", "Preencha o campo Imagem");
+
+
+var senha = $('#senha');
+var olho = $("#olho");
+
+olho.mousedown(function () {
+    senha.attr("type", "text");
+});
+
+olho.mouseup(function () {
+    senha.attr("type", "password");
+});
+
+$("#olho").mouseout(function () {
+    $("#senha").attr("type", "password");
+});
+
+var senha2 = $('#senha2');
+var olho2 = $("#olho2");
+
+olho2.mousedown(function () {
+    senha2.attr("type", "text");
+});
+
+olho2.mouseup(function () {
+    senha2.attr("type", "password");
+});
+
+$("#olho2").mouseout(function () {
+    $("#senha2").attr("type", "password");
+});

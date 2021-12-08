@@ -42,7 +42,7 @@ namespace CleanArchitecture.Mvc.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseGlobalizationConfig();

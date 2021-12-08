@@ -1,0 +1,15 @@
+﻿@if (Context.User.Identity.IsAuthenticated)
+{
+<li class="nav-item">
+    <a class="nav-link text-capitalize" asp-area="" asp-controller="Account" asp-action="Atualizar"  asp-route-id="@Context.User.Identity.Name"
+       style="color: white">@Context.User.Identity.Name.Replace("_"," ")</a>
+
+</li>
+}
+else
+{
+<li class="nav-item">
+    <a class="nav-link text-capitalize" asp-area="" asp-controller="Account" asp-action="Login"
+       style="color: white">Login</a>
+</li>
+}
