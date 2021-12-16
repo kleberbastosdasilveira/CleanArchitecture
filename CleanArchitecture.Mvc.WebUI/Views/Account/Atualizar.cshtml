@@ -1,0 +1,38 @@
+﻿@model UserDTO
+
+<h3>Atualizar Usuário</h3>
+<vc:Summary></vc:Summary>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-controller="Account" asp-action="Atualizar" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col-4 form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Documento" class="control-label" readonly></label>
+                    <input asp-for="Documento" class="form-control" readonly />
+                    <span asp-validation-for="Documento" class="text-danger"></span>
+                </div>
+                <div class=" col-4 form-group">
+                    <label asp-for="Email" readonly></label>
+                    <input asp-for="Email" class="form-control" readonly/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+            <h4>Endereço</h4>
+            <hr />
+
+            <partial name="_Endereco" />
+
+            <button type="submit" class="btn btn-success">Atualizar</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-info">Voltar</a>
+        </form>
+    </div>
+</div>

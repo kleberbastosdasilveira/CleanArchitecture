@@ -3,7 +3,6 @@ using CleanArchitecture.Application.DTOs;
 using CleanArchitecture.Application.DTOs.Address;
 using CleanArchitecture.Application.DTOs.Category.DTO;
 using CleanArchitecture.Application.DTOs.Product.DTO;
-using CleanArchitecture.Application.DTOs.User;
 using CleanArchitecture.Application.DTOs.User.DTO;
 using CleanArchitecture.Domain.Entities;
 

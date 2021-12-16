@@ -7,7 +7,8 @@ namespace CleanArchitecture.Domain.Account
     {
         Task<bool> Authenticate(string email, string password);
         Task<bool> RegisterUder(User user, string password);   
-        Task<bool> AtualizarUser(User user);   
+        Task<bool> AtualizarUser(User user);
+        Task<User> UserAtualizer(string userName);
         Task Logout();
     }
 }

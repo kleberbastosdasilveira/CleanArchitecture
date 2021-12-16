@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CleanArchitecture.Domain.Entities
 {
-    public sealed class Address
+    public class Address
     {
         public string Logradouro { get; set; }
         public string Numero { get; set; }

@@ -63,12 +63,28 @@ namespace CleanArchitecture.Mvc.WebUI.Controllers
         public async Task<IActionResult> Logout()
         {
             await _authenticate.Logout();
-            return Redirect("/Account/Login");
+            return RedirectToAction("Index", "Categories");
         }
 
         public async Task<IActionResult>Atualizar(string id)
         {
-            return null;
+            var result = await _authenticate.UserAtualizer(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>Atualizar(UserDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _authenticate.UserAtualizer(model.Name.Replace(" ","_"));
+                return View(result);
+            }
+            await _authenticate.AtualizarUser(model);
+            if (!OPeracaoValida()) return View(model);
+            TempData["Sucesso"] = "Usuário Atualizado com sucesso!";
+
+            return RedirectToAction("Index", "Categories");
         }
     }
 }

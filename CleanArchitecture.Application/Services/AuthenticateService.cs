@@ -45,9 +45,20 @@ namespace CleanArchitecture.Application.Services
             await _authenticate.Logout();
         }
 
-        public Task<UserDTO> UsuarioLogado(string email)
+        public async Task<UserDTO> UserAtualizer(string userName)
         {
-            throw new System.NotImplementedException();
+           return   _mapper.Map<UserDTO>( await _authenticate.UserAtualizer(userName));
+        }
+
+        public async Task<bool> AtualizarUser(UserDTO user)
+        {
+            var result = await _authenticate.AtualizarUser(_mapper.Map<User>(user));
+            if (!result)
+            {
+                Notificar("Ocorreu um erro ao atualizar as suas informações, verifique todos os campos!!");
+                return false;
+            }
+            return result;
         }
     }
 }

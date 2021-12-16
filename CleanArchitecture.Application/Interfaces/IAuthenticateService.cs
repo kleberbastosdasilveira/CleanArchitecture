@@ -7,7 +7,9 @@ namespace CleanArchitecture.Application.Interfaces
     {
         Task<bool> Authenticate(string email, string password);
         Task<bool> RegisterUder(UserDTO user);   
-        Task<UserDTO> UsuarioLogado(string email);
+        Task<UserDTO> UserAtualizer(string userName);  
+        Task<bool> AtualizarUser(UserDTO user);
+
         Task Logout();
     }
 }
